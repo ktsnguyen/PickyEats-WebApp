@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Bare - Start Bootstrap Template</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="/stylesheets/restaurants.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Responsive navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">PickyEats</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Page content-->
+  <div class="container no-expand">
+    <div class="text-center mt-5">
+      <h1>Eat At: <span id = "randomRestaurant">?</span></h1>
+      <form action="/restaurants" method="post" style = "display: inline-block;">
+        <input type="text" name="restaurant_name" required>
+        <button>Submit</button>
+        <!--<button type = "button" id = "editButton">Edit</button> -->
+      </form>
+      <br>
+      <br>
+      <div class="container">
+        <div class="my-custom-scrollbar table-wrapper-scroll-y">
+          <table class="table table-hover table-responsive">
+            <thead>
+              <tr>
+                <th scope="col">Restaurant</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let restaurant of allRestaurant) { %>
+              <tr>
+                <td id = "restaurantData"><a href="/restaurants/<%=restaurant.toeat_id%>/edit"><span id = "restaurantValue"><%=restaurant.restaurant_name%></span></a></td>
+                <td>
+                  <form action="/restaurants/<%=restaurant.toeat_id%>?_method=DELETE", method="post">
+                    <button>Delete</button>
+                  </form>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+        <form>
+          <button id = "randomizer" type="button" name="button">Random Restaurant</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="/javascripts/scripts.js"></script>
+</body>
+
+</html>
