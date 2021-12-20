@@ -32,7 +32,7 @@
     <div class="text-center mt-5">
       <h1>Edit Information</h1>
       <form action = "/restaurants/<%=restaurant.toeat_id%>?_method=PUT" method = "post">
-      <input type="text" name="restaurant_name" placeholder = <%=restaurant.restaurant_name%> value = <%=restaurant.restaurant_name%>>
+      <input type="text" name="restaurant_name" placeholder = <%=restaurant.restaurant_name%> value = "<%=restaurant.restaurant_name%>">
         <button>Update</button>
       </form>
       <a href="/restaurants">Return to Home</a>
